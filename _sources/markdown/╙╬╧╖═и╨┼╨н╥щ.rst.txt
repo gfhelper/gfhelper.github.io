@@ -1,0 +1,128 @@
+游戏通信协议
+============
+
+整体流程
+~~~~~~~~
+
+苹果服地址为\ ``l.ucenter.ppgame.com``,
+appid为\ ``0001000100021001``\ ， 安卓服为\ ``gf.ucenter.ppgame.com``,
+appid为\ ``0002000100021001``\ 。
+
+未登录状态
+^^^^^^^^^^
+
+先获取区域列表，主要是判断 0
+区的状态是否在维护；再获取服务器信息，主要用来获取时间用于校时，以及拿到
+``data_version`` 用于后续请求。
+
+登录
+^^^^
+
+密码登录获取 ``access_token`` 和 ``openid`` ；
+
+若有已保存的参数则进行“自动登录”， 即验证先前拿到的这两个参数的正确性
+，不正确再进行密码登录；
+
+请求 ``DigitalSkyNbUid`` 获取 ``uid``, ``sign``, ``is_username_exist``,
+``real_name``
+
+密码登陆
+~~~~~~~~
+
+Request
+^^^^^^^
+
+::
+
+    POST /normal_login HTTP/1.1
+    Host: gf.ucenter.ppgame.com
+
+    {"app_id":"0002000100021001","version":"1.0"}
+
+-  
+
+::
+
+    \x00
+
+-  
+
+::
+
+    xxtea.encrypt('{"app_id":"0001000100021001","login_identify":"xxx@163.com","login_pwd":"xxxxxxxxxxxxxxxxxxxxxxxx"}')
+
+``XXTEA``
+的密钥为\ ``1234567890``\ ，看实现是照抄的\ ``github.com/xxtea``\ ，其中加密解密时不包含长度。
+
+Response
+^^^^^^^^
+
+.. code:: json
+
+    {"access_token":"token_here","result":0,"msg":"","openid":"openid_here","register_mode":"E","state":9,"app_id":"0002000100021001"}
+
+    OR
+
+    {"result":60101,"msg":"error: illegal json."}
+
+自动登录
+~~~~~~~~
+
+本步需使用密码登陆返回的 ``access_token`` 和 ``openid`` 。
+
+Request
+^^^^^^^
+
+::
+
+    POST /auth HTTP/1.1
+    Host: gf.ucenter.ppgame.com
+
+    {"app_id":"0002000100021001","version":"1.0"}
+
+-  
+
+::
+
+    \x00
+
+-  
+
+::
+
+    xxtea.encrypt('{"app_id":"0002000100021001","openid":"openid_here","access_token":"token_here","language":"cn"}')
+
+Response
+^^^^^^^^
+
+::
+
+    {"result":0,"msg":"success","state":9}
+
+获取DigitalSkyNbUid
+~~~~~~~~~~~~~~~~~~~
+
+该步骤可以拿到后续通信所需的 ``sign`` 值。
+
+Request
+^^^^^^^
+
+::
+
+    POST /index.php/1000/Index/getDigitalSkyNbUid HTTP/1.1
+    X-Unity-Version: 5.2.5f1
+    Host: gf-adrgw-cn-zs-game-0001.ppgame.com
+    Connection: close
+    Accept-Encoding: gzip, deflate
+    Content-Length: 198
+
+    openid=openid_here&access_token=token_here&app_id=0002000100021001&channelid=TapTap&idfa=&androidid=android_here&mac=mac_here&req_id=req_id_here
+
+    openid=openid_here&access_token=token_here&app_id=0001000100021001&channelid=ios&idfa=idfa_here&androidid=&mac=02-00-00-00-00-00&req_id=req_id_here
+
+Response
+^^^^^^^^
+
+::
+
+    {"uid":"1285045","sign":"sign_here","is_username_exist":true,"real_name":"1","authentication_url":"http:\/\/realauth.ucenter.ppgame.com\/authoriz.html?appid={0}&openid={1}&accounttype=1&language=zh","tc_order_retry":0}

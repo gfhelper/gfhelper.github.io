@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>使用说明 &mdash; GFHelperWiki  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'zh_CN',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GFHelperWiki
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">安装/部署</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/windows.html">Windows平台部署教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/linux.html">Linux平台部署教程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/usage.html">使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/protocol.html">游戏通信协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/structure.html">代码组织架构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/contribute.html">Code / Issue Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GFHelperWiki</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>使用说明</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/markdown/使用说明.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>使用说明<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>本系统使用内嵌数据库进行账号管理，账号信息保存在同目录的数据库文件中。</p>
+<p>目前账号管理主要分为 2
+组，一组是指定任务型的任务账号，另一组是批量操作的资源账号。</p>
+<p>对于个人玩家来说，只需要看任务账号即可。</p>
+<div class="section" id="id2">
+<h2>任务账号<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>任务账号是指有特定需求的单个账号。目前实现的功能有<strong>账号导入导出</strong>、<strong>全自动后勤</strong>、<strong>全自动战斗</strong>。</p>
+<p>其中<strong>全自动战斗</strong>适用于<strong>刷人形等级</strong>、<strong>刷核心</strong>和<strong>捞枪活动</strong>。</p>
+<p>账号登陆后，不会动已有的所有人形，战斗获得的人形会根据稀有度选择投喂、回收和保留。所以战斗前请保证有较多的空余人形床位。</p>
+<ul class="simple">
+<li>EmpAdder</li>
+</ul>
+<p>该命令可用于交互式地添加、删除、列出任务账号。</p>
+<p>添加用户时需要指定用户名、密码、服务器(iOS / Android /
+台湾服)、需要刷的关卡和刷关次数。</p>
+<ul class="simple">
+<li>Ork</li>
+</ul>
+<p>该命令用于对所有任务账号执行战斗任务。</p>
+<p>会自动登陆并执行指定次数的指定关卡。若当前未解锁目标关卡，则会自动先执行前置关卡。</p>
+<ul class="simple">
+<li>OrkMRE</li>
+</ul>
+<p>该命令用于对所有任务账号执行后勤刷资源。</p>
+<p>由于执行任务消耗 MRE
+较多，所以这里执行的后勤侧重于口粮。你也可以修改其任务配置，刷你想要的后勤。</p>
+<p>未解锁后勤则会自动完成战斗解锁后勤。</p>
+</div>
+<div class="section" id="id3">
+<h2>资源账号<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>资源账号是指只 care
+账号资源的账号，一般为空的资源号。目前实现的功能有<strong>账号生成过滤导出</strong>、<strong>全自动后勤</strong>、<strong>全自动战斗</strong>。</p>
+<ul class="simple">
+<li>UserGenerator</li>
+</ul>
+<p>用于生成不存在的空账号。</p>
+<ul class="simple">
+<li>Register</li>
+</ul>
+<p>用于对生成的账号批量注册。</p>
+<p>传入 <code class="docutils literal notranslate"><span class="pre">login-only</span></code> 参数将注册并登录所有账号，额外传入 <code class="docutils literal notranslate"><span class="pre">existed-only</span></code>
+将阻止注册过程，只对Token失效的账号做重新登陆。</p>
+<ul class="simple">
+<li>Goblin</li>
+</ul>
+<p>对所有已登录的资源号执行后勤刷资源。</p>
+<p>未解锁后勤则会自动完成战斗解锁后勤。</p>
+<ul class="simple">
+<li>DBManager</li>
+</ul>
+<p>账号过滤、批量导出和删除。</p>
+</div>
+<div class="section" id="id4">
+<h2>其他指令<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>PacketDecryptor</li>
+</ul>
+<p>主要是开发时Debug用。具体加密方式见本文档的协议部分。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, gfhelper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

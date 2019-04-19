@@ -1,0 +1,56 @@
+代码组织架构
+============
+
+在您阅读代码之前，不妨看一下本章。本章将介绍这份工程的代码组织架构。
+
+cipher 包
+~~~~~~~~~
+
+cipher 包负责处理通信加密解密。
+
+-  authcode
+
+游戏过程中的加解密算法
+
+-  xxtea
+
+游戏登录认证加解密算法
+
+-  utils
+
+MD5 和 GZip 的一些封装
+
+protocol 包
+~~~~~~~~~~~
+
+protocol 主要实现游戏的原始通信 API。
+
+-  server
+
+获取服务器列表
+
+-  user
+
+用户注册登陆验证
+
+-  gameuser
+
+获取游戏 sign 和 openid
+
+-  gameaction
+
+发送游戏操作并解析返回结果
+
+-  network
+
+处理 HTTP POST 相关较底层请求
+
+gameact 包
+~~~~~~~~~~
+
+gameact包主要封装一些游戏逻辑。
+
+usercenter包
+~~~~~~~~~~~~
+
+usercenter包负责用户账号管理和规划。

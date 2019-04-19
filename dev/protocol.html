@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>游戏通信协议 &mdash; GFHelperWiki  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'zh_CN',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="代码组织架构" href="structure.html" />
+    <link rel="prev" title="使用说明" href="../usage/usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GFHelperWiki
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">安装/部署</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/windows.html">Windows平台部署教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/linux.html">Linux平台部署教程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/usage.html">使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">游戏通信协议</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">整体流程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">未登录状态</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">登录</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">密码登陆</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response">Response</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">自动登录</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Response</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#digitalskynbuid">获取DigitalSkyNbUid</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structure.html">代码组织架构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Code / Issue Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GFHelperWiki</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>游戏通信协议</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/dev/protocol.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>游戏通信协议<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>整体流程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>苹果服地址为<code class="docutils literal notranslate"><span class="pre">l.ucenter.ppgame.com</span></code>,
+appid为<code class="docutils literal notranslate"><span class="pre">0001000100021001</span></code>， 安卓服为<code class="docutils literal notranslate"><span class="pre">gf.ucenter.ppgame.com</span></code>,
+appid为<code class="docutils literal notranslate"><span class="pre">0002000100021001</span></code>。</p>
+<div class="section" id="id3">
+<h3>未登录状态<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>先获取区域列表，主要是判断 0
+区的状态是否在维护；再获取服务器信息，主要用来获取时间用于校时，以及拿到
+<code class="docutils literal notranslate"><span class="pre">data_version</span></code> 用于后续请求。</p>
+</div>
+<div class="section" id="id4">
+<h3>登录<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>密码登录获取 <code class="docutils literal notranslate"><span class="pre">access_token</span></code> 和 <code class="docutils literal notranslate"><span class="pre">openid</span></code> ；</p>
+<p>若有已保存的参数则进行“自动登录”， 即验证先前拿到的这两个参数的正确性
+，不正确再进行密码登录；</p>
+<p>请求 <code class="docutils literal notranslate"><span class="pre">DigitalSkyNbUid</span></code> 获取 <code class="docutils literal notranslate"><span class="pre">uid</span></code>, <code class="docutils literal notranslate"><span class="pre">sign</span></code>, <code class="docutils literal notranslate"><span class="pre">is_username_exist</span></code>,
+<code class="docutils literal notranslate"><span class="pre">real_name</span></code></p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>密码登陆<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="request">
+<h3>Request<a class="headerlink" href="#request" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">normal_login</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">gf</span><span class="o">.</span><span class="n">ucenter</span><span class="o">.</span><span class="n">ppgame</span><span class="o">.</span><span class="n">com</span>
+
+<span class="p">{</span><span class="s2">&quot;app_id&quot;</span><span class="p">:</span><span class="s2">&quot;0002000100021001&quot;</span><span class="p">,</span><span class="s2">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.0&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">x00</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xxtea</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="s1">&#39;{&quot;app_id&quot;:&quot;0001000100021001&quot;,&quot;login_identify&quot;:&quot;xxx@163.com&quot;,&quot;login_pwd&quot;:&quot;xxxxxxxxxxxxxxxxxxxxxxxx&quot;}&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">XXTEA</span></code>
+的密钥为<code class="docutils literal notranslate"><span class="pre">1234567890</span></code>，看实现是照抄的<code class="docutils literal notranslate"><span class="pre">github.com/xxtea</span></code>，其中加密解密时不包含长度。</p>
+</div>
+<div class="section" id="response">
+<h3>Response<a class="headerlink" href="#response" title="永久链接至标题">¶</a></h3>
+<div class="code json highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;access_token&quot;</span><span class="p">:</span><span class="s2">&quot;token_here&quot;</span><span class="p">,</span><span class="s2">&quot;result&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;msg&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;openid&quot;</span><span class="p">:</span><span class="s2">&quot;openid_here&quot;</span><span class="p">,</span><span class="s2">&quot;register_mode&quot;</span><span class="p">:</span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="s2">&quot;state&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="s2">&quot;app_id&quot;</span><span class="p">:</span><span class="s2">&quot;0002000100021001&quot;</span><span class="p">}</span>
+
+<span class="n">OR</span>
+
+<span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span><span class="mi">60101</span><span class="p">,</span><span class="s2">&quot;msg&quot;</span><span class="p">:</span><span class="s2">&quot;error: illegal json.&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>自动登录<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>本步需使用密码登陆返回的 <code class="docutils literal notranslate"><span class="pre">access_token</span></code> 和 <code class="docutils literal notranslate"><span class="pre">openid</span></code> 。</p>
+<div class="section" id="id7">
+<h3>Request<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">auth</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">gf</span><span class="o">.</span><span class="n">ucenter</span><span class="o">.</span><span class="n">ppgame</span><span class="o">.</span><span class="n">com</span>
+
+<span class="p">{</span><span class="s2">&quot;app_id&quot;</span><span class="p">:</span><span class="s2">&quot;0002000100021001&quot;</span><span class="p">,</span><span class="s2">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.0&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">x00</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xxtea</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="s1">&#39;{&quot;app_id&quot;:&quot;0002000100021001&quot;,&quot;openid&quot;:&quot;openid_here&quot;,&quot;access_token&quot;:&quot;token_here&quot;,&quot;language&quot;:&quot;cn&quot;}&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Response<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;msg&quot;</span><span class="p">:</span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="s2">&quot;state&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="digitalskynbuid">
+<h2>获取DigitalSkyNbUid<a class="headerlink" href="#digitalskynbuid" title="永久链接至标题">¶</a></h2>
+<p>该步骤可以拿到后续通信所需的 <code class="docutils literal notranslate"><span class="pre">sign</span></code> 值。</p>
+<div class="section" id="id9">
+<h3>Request<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="mi">1000</span><span class="o">/</span><span class="n">Index</span><span class="o">/</span><span class="n">getDigitalSkyNbUid</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">X</span><span class="o">-</span><span class="n">Unity</span><span class="o">-</span><span class="n">Version</span><span class="p">:</span> <span class="mf">5.2</span><span class="o">.</span><span class="mi">5</span><span class="n">f1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">gf</span><span class="o">-</span><span class="n">adrgw</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">zs</span><span class="o">-</span><span class="n">game</span><span class="o">-</span><span class="mf">0001.</span><span class="n">ppgame</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Connection</span><span class="p">:</span> <span class="n">close</span>
+<span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span> <span class="n">deflate</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">198</span>
+
+<span class="n">openid</span><span class="o">=</span><span class="n">openid_here</span><span class="o">&amp;</span><span class="n">access_token</span><span class="o">=</span><span class="n">token_here</span><span class="o">&amp;</span><span class="n">app_id</span><span class="o">=</span><span class="mi">0002000100021001</span><span class="o">&amp;</span><span class="n">channelid</span><span class="o">=</span><span class="n">TapTap</span><span class="o">&amp;</span><span class="n">idfa</span><span class="o">=&amp;</span><span class="n">androidid</span><span class="o">=</span><span class="n">android_here</span><span class="o">&amp;</span><span class="n">mac</span><span class="o">=</span><span class="n">mac_here</span><span class="o">&amp;</span><span class="n">req_id</span><span class="o">=</span><span class="n">req_id_here</span>
+
+<span class="n">openid</span><span class="o">=</span><span class="n">openid_here</span><span class="o">&amp;</span><span class="n">access_token</span><span class="o">=</span><span class="n">token_here</span><span class="o">&amp;</span><span class="n">app_id</span><span class="o">=</span><span class="mi">0001000100021001</span><span class="o">&amp;</span><span class="n">channelid</span><span class="o">=</span><span class="n">ios</span><span class="o">&amp;</span><span class="n">idfa</span><span class="o">=</span><span class="n">idfa_here</span><span class="o">&amp;</span><span class="n">androidid</span><span class="o">=&amp;</span><span class="n">mac</span><span class="o">=</span><span class="mi">02</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span><span class="o">&amp;</span><span class="n">req_id</span><span class="o">=</span><span class="n">req_id_here</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>Response<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;uid&quot;</span><span class="p">:</span><span class="s2">&quot;1285045&quot;</span><span class="p">,</span><span class="s2">&quot;sign&quot;</span><span class="p">:</span><span class="s2">&quot;sign_here&quot;</span><span class="p">,</span><span class="s2">&quot;is_username_exist&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span><span class="s2">&quot;real_name&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;authentication_url&quot;</span><span class="p">:</span><span class="s2">&quot;http:\/\/realauth.ucenter.ppgame.com\/authoriz.html?appid=</span><span class="si">{0}</span><span class="s2">&amp;openid=</span><span class="si">{1}</span><span class="s2">&amp;accounttype=1&amp;language=zh&quot;</span><span class="p">,</span><span class="s2">&quot;tc_order_retry&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="structure.html" class="btn btn-neutral float-right" title="代码组织架构" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../usage/usage.html" class="btn btn-neutral float-left" title="使用说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, gfhelper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

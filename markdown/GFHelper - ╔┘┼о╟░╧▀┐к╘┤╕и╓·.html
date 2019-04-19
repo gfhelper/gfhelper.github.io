@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GFHelper - 少女前线助手 &mdash; GFHelperWiki  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'zh_CN',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GFHelperWiki
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">安装/部署</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/windows.html">Windows平台部署教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/linux.html">Linux平台部署教程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/usage.html">使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/protocol.html">游戏通信协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/structure.html">代码组织架构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/contribute.html">Code / Issue Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GFHelperWiki</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>GFHelper - 少女前线助手</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/markdown/GFHelper - 少女前线开源辅助.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gfhelper">
+<h1>GFHelper - 少女前线助手<a class="headerlink" href="#gfhelper" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://github.com/gfhelper">GFHelper</a>
+是一个开源的少女前线助手。既可以高效处理个人的少量账号，也可以处理大规模的账号库。</p>
+<p>本辅助使用 Golang 编写，代码主体完成于 2018
+年，2019年春测试仍可用并开源。游戏操作采用直接发包进行，对比于使用模拟器的方案本项目占用资源可以忽略不计。可视作游戏客户端的开源实现。</p>
+<p>目前提供的功能包括：</p>
+<ul class="simple">
+<li>自动批量注册、登陆，和账号导入导出</li>
+<li>自动梯队编排</li>
+<li>自动作战(<strong>刷等级</strong>)</li>
+<li>自动后勤(<strong>刷资源</strong>)</li>
+<li>智能人形升级(<strong>刷属性</strong>)、回收(<strong>刷核心</strong>)</li>
+<li>支持不同区域服务器的账号(iOS官服 / Android官服 / 台湾天下服 /
+其他服可轻松扩展)</li>
+<li>支持HTTP代理池</li>
+</ul>
+<p>本项目是出于实验目的少女前线开源客户端，只用于验证算法可行性，请在24小时内删除。</p>
+<p>本项目不可用于盈利性目的。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, gfhelper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

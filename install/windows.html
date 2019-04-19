@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Windows平台部署教程 &mdash; GFHelperWiki  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'zh_CN',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Linux平台部署教程" href="linux.html" />
+    <link rel="prev" title="GFHelper - 少女前线助手" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GFHelperWiki
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">安装/部署</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Windows平台部署教程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">从发布版本运行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">从源码运行</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux平台部署教程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/usage.html">使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/protocol.html">游戏通信协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/structure.html">代码组织架构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/contribute.html">Code / Issue Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GFHelperWiki</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Windows平台部署教程</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/install/windows.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="windows">
+<h1>Windows平台部署教程<a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h1>
+<p>本教程将引导你在 Windows 平台上部署运行GFHelper。</p>
+<div class="section" id="id1">
+<h2>从发布版本运行<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>推荐绝大多数用户使用。</p>
+<ol class="arabic simple">
+<li>使用浏览器打开
+<a class="reference external" href="https://github.com/gfhelper/GFHelper/releases">https://github.com/gfhelper/GFHelper/releases</a>，<strong>下载压缩包并解压</strong>。</li>
+<li>在解压后的文件夹中按住 <strong>``右Shift + 鼠标右键``</strong> ，点击
+<strong>``使用CMD打开该文件夹``</strong>， 或者点击
+<strong>``使用PowerShell打开该文件夹``</strong>。</li>
+<li>输入文件名并回车，来调用对应可执行文件。</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>从源码运行<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>推荐想修改源代码的同学使用。</p>
+<ol class="arabic simple">
+<li>安装 <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">for</span> <span class="pre">Windows</span></code>，<code class="docutils literal notranslate"><span class="pre">Golang</span> <span class="pre">SDK</span></code> 并配置正确的 <code class="docutils literal notranslate"><span class="pre">GOPATH</span></code>
+和 <code class="docutils literal notranslate"><span class="pre">GOROOT</span></code>。</li>
+<li>通过 <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">get</span> <span class="pre">-u</span> <span class="pre">https://github.com/gfhelper/GFHelper</span></code>
+下载并更新源代码。</li>
+<li>定位至<code class="docutils literal notranslate"><span class="pre">~/go/src/github.com/gfhelper/GFHelper</span></code> 。</li>
+<li>运行 <code class="docutils literal notranslate"><span class="pre">build.bat</span></code> 编译对应程序。</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="linux.html" class="btn btn-neutral float-right" title="Linux平台部署教程" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="GFHelper - 少女前线助手" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, gfhelper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

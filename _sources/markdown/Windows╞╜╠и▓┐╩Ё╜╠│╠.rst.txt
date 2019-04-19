@@ -1,0 +1,28 @@
+Windows平台部署教程
+===================
+
+本教程将引导你在 Windows 平台上部署运行GFHelper。
+
+从发布版本运行
+--------------
+
+推荐绝大多数用户使用。
+
+1. 使用浏览器打开
+   https://github.com/gfhelper/GFHelper/releases，\ **下载压缩包并解压**\ 。
+2. 在解压后的文件夹中按住 **``右Shift + 鼠标右键``** ，点击
+   **``使用CMD打开该文件夹``**\ ， 或者点击
+   **``使用PowerShell打开该文件夹``**\ 。
+3. 输入文件名并回车，来调用对应可执行文件。
+
+从源码运行
+----------
+
+推荐想修改源代码的同学使用。
+
+1. 安装 ``Git for Windows``\ ，\ ``Golang SDK`` 并配置正确的 ``GOPATH``
+   和 ``GOROOT``\ 。
+2. 通过 ``go get -u https://github.com/gfhelper/GFHelper``
+   下载并更新源代码。
+3. 定位至\ ``~/go/src/github.com/gfhelper/GFHelper`` 。
+4. 运行 ``build.bat`` 编译对应程序。
